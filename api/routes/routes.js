@@ -1,13 +1,12 @@
 module.exports = (app) => {
   app.route('/tasks')
     .get(function(req,res){
-    app.get('/pagelist',function(req,res){
-     if(!db) initDb(function(err){});
-     if(db){
-       db.collection('counts').find({}).toArray(function(err, result) {
-           if (err) throw err;
-           res.json(result);
-       });
+      if(!db) initDb(function(err){});
+      if(db){
+        db.collection('counts').find({}).toArray(function(err, result) {
+          if (err) throw err;
+          res.json(result);
+        });
       }
       res.json({message: 'Hello tasks!'});
    })
