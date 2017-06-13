@@ -3,7 +3,8 @@ var express = require('express'),
     fs      = require('fs'),
     app     = express(),
     eps     = require('ejs'),
-    morgan  = require('morgan');
+    morgan  = require('morgan'),
+    bodyParser = require('body-parser');
 
 Object.assign=require('object-assign')
 app.engine('html', require('ejs').renderFile);
@@ -55,6 +56,9 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 var routes = require('./api/routes/routes');
 routes(app);
