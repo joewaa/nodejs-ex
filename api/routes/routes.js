@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = (app,db) => {
   app.route('/tasks')
     .get(function(req,res){
       if(!db) initDb(function(err){});
