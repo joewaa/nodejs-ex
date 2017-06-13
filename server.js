@@ -61,7 +61,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var routes = require('./api/routes/routes');
-routes(app);
+routes(app,db);
 
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
