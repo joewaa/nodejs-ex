@@ -100,7 +100,7 @@ app.get('/pagelist',function(req,res){
     if(db){
         db.collection('counts').find({}).toArray(function(err, result) {
             if (err) throw err;
-            app.json(result);
+            res.json(result);
         //db.close();
         });
     }
