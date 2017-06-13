@@ -95,7 +95,16 @@ app.get('/pagecount', function (req, res) {
     res.send('{ pageCount: -1 }');
   }
 });
-
+app.get('/pagelist',function(req,res){
+    if(!db) initDb(function(err){});
+    if(db){
+        db.collection('counts').find({}).toArray(function(err, result) {
+            if (err) throw err;
+            app.json(result);
+        //db.close();
+        });
+    }
+});
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
