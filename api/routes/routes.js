@@ -1,6 +1,6 @@
 module.exports = (app) => {
   app.route('/tasks')
     .get(function(req,res){
-      res.send('Hello tasks');
+      res.json({message: 'Hello tasks!'});
     })
 }
