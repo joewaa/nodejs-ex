@@ -9,5 +9,10 @@ module.exports = (app,db) => {
         });
       }
       res.json({message: 'Hello tasks!'});
+   });
+   
+   
+   app.route('/routes').get(function(req,res){
+    res.json({mes:'ok'});
    })
 }
