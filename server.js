@@ -4,7 +4,8 @@ var express = require('express'),
     app     = express(),
     eps     = require('ejs'),
     morgan  = require('morgan'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
 
 Object.assign=require('object-assign')
 app.engine('html', require('ejs').renderFile);
