@@ -14,5 +14,8 @@ module.exports = (app,db) => {
    
    app.route('/routes').get(function(req,res){
     res.json({mes:'ok'});
-   })
+   });
+  
+  var todoList = require('../controllers/todoListController');
+  app.route('/api/tasks').get(todoList.list_all_tasks);
 }
